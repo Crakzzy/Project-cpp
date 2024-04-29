@@ -1,5 +1,6 @@
 #include <iostream>
 #include <chrono>
+#include <vector>
 
 using namespace std::chrono;
 using namespace std;
@@ -20,6 +21,19 @@ void selectionSort(std::vector<int>& arr) {
         int temp = arr[minIndex];
         arr[minIndex] = arr[i];
         arr[i] = temp;
+    }
+}
+
+void bubbleSort(vector<int>& array) {
+    int n = array.size();
+    for (int i = 0; i < n - 1; ++i) {
+        for (int j = 0; j < n - i - 1; ++j) {
+            if (array[j] > array[j + 1]) {
+                int temp = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = temp;
+            }
+        }
     }
 }
 
