@@ -9,7 +9,7 @@ void printAuthors() {
     cout << "Matej Pucik \n Martin Valko" << endl;
 }
 
-void selectionSort(std::vector<int>& arr) {
+void selectionSort(vector<int> &arr) {
     int n = arr.size();
     for (int i = 0; i < n - 1; ++i) {
         int minIndex = i;
@@ -24,7 +24,7 @@ void selectionSort(std::vector<int>& arr) {
     }
 }
 
-void bubbleSort(vector<int>& array) {
+void bubbleSort(vector<int> &array) {
     int n = array.size();
     for (int i = 0; i < n - 1; ++i) {
         for (int j = 0; j < n - i - 1; ++j) {
@@ -53,11 +53,28 @@ void insertionSort(int arr[], int n) {
 
 int main() {
 
-    milliseconds ms = duration_cast< milliseconds >(
+    milliseconds ms = duration_cast<milliseconds>(
             system_clock::now().time_since_epoch()
     );
 
+    int arr[] = {12, 11, 13, 5, 6, 7, 1, 2, 3, 4};
+    vector<int> vec = {12, 11, 13, 5, 6, 7, 1, 2, 3, 4};
+
+    auto start = high_resolution_clock::now();
+
+    for (int i = 0; i < 1000; i++) {
+        selectionSort(vec);
+        bubbleSort(vec);
+        insertionSort(arr, 10);
+    }
+
+    auto stop = high_resolution_clock::now();
+    auto duration = duration_cast<microseconds>(stop - start);
+
+    cout << duration.count() << endl;
     cout << ms.count() << endl;
+
+    vec.clear();
 
     return 0;
 }
