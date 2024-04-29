@@ -4,6 +4,10 @@
 using namespace std::chrono;
 using namespace std;
 
+void printAuthors() {
+    cout << "Matej Pucik \n Martin Valko" << endl;
+}
+
 int main() {
 
     milliseconds ms = duration_cast< milliseconds >(
